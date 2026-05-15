@@ -1,1 +1,244 @@
+/* ======================================================================
+   GarnetWorld — DEEP GARNET & CHAMPAGNE GOLD (Premium Glossy Theme)
+   Rich wine background · luminous gold highlights · ivory typography
+   ====================================================================== */
 
+:root{
+  /* Garnet wine */
+  --garnet-50:#fdf2f4;  --garnet-100:#fadce0; --garnet-200:#f3aab2;
+  --garnet-300:#e8717f; --garnet-400:#d8485a; --garnet-500:#b62a3e;
+  --garnet-600:#8e1e30; --garnet-700:#6a1525; --garnet-800:#460e1a;
+  --garnet-900:#26060d;
+
+  /* Champagne / Gold */
+  --gold-100:#fff5d6;  --gold-200:#fbe39a; --gold-300:#f3cc6c;
+  --gold-400:#e6b34a; --gold-500:#c8932a; --gold-600:#9a6f1c;
+
+  /* Ivory ink */
+  --ivory:        #fcecd2;     /* warm ivory text */
+  --ivory-soft:   rgba(252,236,210,.82);
+  --ivory-mute:   rgba(252,236,210,.62);
+  --line:         rgba(243,204,108,.18);
+
+  --bg:           #1a0509;     /* near-black wine */
+  --bg-deep:      #0e0306;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','Segoe UI',sans-serif;
+  color:var(--ivory);
+  background:
+    radial-gradient(1200px 700px at 90% -10%, rgba(216,72,90,.30), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(230,179,74,.18), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  background-attachment: fixed;
+}
+.font-display{
+  font-family:'Playfair Display',Georgia,serif;
+  color:var(--gold-300);
+  text-shadow:0 1px 0 rgba(0,0,0,.35);
+}
+
+/* ---------- Tailwind utility overrides (text on dark stays warm/ivory) ---------- */
+.text-white,
+.text-white\/95     { color:var(--ivory)             !important; }
+.text-white\/90     { color:rgba(252,236,210,.92)     !important; }
+.text-white\/80     { color:rgba(252,236,210,.85)     !important; }
+.text-white\/70     { color:rgba(252,236,210,.78)     !important; }
+.text-white\/60     { color:rgba(252,236,210,.65)     !important; }
+.text-white\/50     { color:rgba(252,236,210,.55)     !important; }
+.text-white\/40     { color:rgba(252,236,210,.42)     !important; }
+
+/* dark-bg utilities → glossy garnet panels */
+.bg-black\/30,
+.bg-black\/40       { background:linear-gradient(180deg, rgba(38,6,13,.65), rgba(70,14,26,.55)) !important;
+                      backdrop-filter:blur(10px) saturate(140%); }
+.bg-black\/70       { background:rgba(14,3,6,.92)  !important;
+                      backdrop-filter:blur(14px) saturate(160%); }
+
+.border-white\/10,
+.border-white\/15,
+.border-white\/20   { border-color:var(--line) !important; }
+
+/* ---------- Hero — luminous garnet glow with gold sheen ---------- */
+.hero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(216,72,90,.55), transparent 60%),
+    radial-gradient(900px 600px at 10% 110%, rgba(230,179,74,.30), transparent 60%),
+    radial-gradient(700px 500px at 50% 50%, rgba(106,21,37,.55), transparent 70%),
+    linear-gradient(135deg, #2a070f 0%, #460e1a 45%, #6a1525 100%);
+}
+.hero::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(243,204,108,.12) 0%, transparent 35%),
+    radial-gradient(800px 200px at 50% 100%, rgba(243,204,108,.18), transparent 70%);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.5'/></svg>");
+  mix-blend-mode:overlay;
+}
+
+/* Floating glossy garnet crystals */
+.crystal{
+  position:absolute;border-radius:50%;
+  background:
+    radial-gradient(circle at 28% 28%, #ffd1d6 0%, #d8485a 35%, #6a1525 75%, #1a0509 100%);
+  box-shadow:
+    0 0 60px rgba(216,72,90,.55),
+    inset -8px -10px 26px rgba(0,0,0,.45),
+    inset 6px 8px 22px rgba(255,255,255,.30);
+  animation:float 9s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(8deg)}}
+
+/* ---------- Glossy glass cards (dark wine + gold rim) ---------- */
+.glass{
+  background:linear-gradient(180deg, rgba(70,14,26,.72) 0%, rgba(38,6,13,.62) 100%);
+  border:1px solid rgba(243,204,108,.22);
+  box-shadow:
+    0 1px 0 rgba(243,204,108,.18) inset,
+    0 -10px 30px rgba(216,72,90,.20) inset,
+    0 18px 45px -18px rgba(0,0,0,.65),
+    0 6px 20px -6px rgba(216,72,90,.25);
+  backdrop-filter:blur(12px) saturate(160%);
+  border-radius:1rem;
+}
+.card-hover{transition:transform .35s ease, box-shadow .35s ease, border-color .35s}
+.card-hover:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 1px 0 rgba(243,204,108,.30) inset,
+    0 -10px 30px rgba(230,179,74,.22) inset,
+    0 30px 70px -20px rgba(0,0,0,.85),
+    0 12px 30px -10px rgba(216,72,90,.40);
+  border-color:rgba(243,204,108,.55);
+}
+
+/* ---------- Glossy buttons ---------- */
+.btn{
+  position:relative; display:inline-flex; align-items:center; gap:.5rem;
+  padding:.85rem 1.4rem; border-radius:9999px; font-weight:600;
+  letter-spacing:.02em; transition:all .25s ease; overflow:hidden;
+  text-decoration:none;
+}
+.btn::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 50%);
+  pointer-events:none; border-radius:inherit;
+}
+/* PRIMARY = champagne gold (the lighting!) */
+.btn-primary{
+  color:#2a070f;
+  background:linear-gradient(180deg, #fff5d6 0%, #f3cc6c 35%, #e6b34a 65%, #9a6f1c 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.55) inset,
+    0 -8px 20px rgba(0,0,0,.20) inset,
+    0 14px 30px rgba(230,179,74,.45),
+    0 4px 10px rgba(154,111,28,.40);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.65) inset,
+    0 -8px 20px rgba(0,0,0,.18) inset,
+    0 22px 40px rgba(230,179,74,.55),
+    0 6px 14px rgba(154,111,28,.45);
+}
+/* GHOST = dark wine with gold border */
+.btn-ghost{
+  color:var(--ivory);
+  background:linear-gradient(180deg, rgba(70,14,26,.7) 0%, rgba(38,6,13,.85) 100%);
+  border:1px solid rgba(243,204,108,.45);
+  box-shadow:
+    0 1px 0 rgba(243,204,108,.18) inset,
+    0 8px 18px rgba(0,0,0,.45);
+}
+.btn-ghost:hover{
+  background:linear-gradient(180deg, rgba(106,21,37,.85) 0%, rgba(70,14,26,.95) 100%);
+  border-color:rgba(243,204,108,.85);
+  color:var(--gold-200);
+}
+
+/* ---------- Typography accents ---------- */
+.eyebrow{
+  letter-spacing:.3em; font-size:.72rem; text-transform:uppercase;
+  color:var(--gold-400); font-weight:700;
+}
+.section-title{font-size:clamp(1.8rem,3vw,2.8rem); line-height:1.15; color:var(--gold-300)}
+
+/* Marquee */
+.marquee{display:flex; gap:3rem; animation:scroll 28s linear infinite; white-space:nowrap; color:var(--ivory-mute)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Product grade chip — glossy gold */
+.grade-chip{
+  background:linear-gradient(180deg, rgba(243,204,108,.18) 0%, rgba(106,21,37,.55) 100%);
+  border:1px solid rgba(243,204,108,.35);
+  color:var(--ivory);
+  box-shadow:
+    0 1px 0 rgba(243,204,108,.25) inset,
+    0 4px 10px rgba(0,0,0,.35);
+}
+
+/* Footer (deep wine with gold top edge) */
+footer{
+  background:linear-gradient(180deg, #1a0509 0%, #0e0306 100%) !important;
+  border-top:1px solid rgba(243,204,108,.30) !important;
+  color:var(--ivory);
+}
+footer a{color:var(--ivory-soft)}
+footer a:hover{color:var(--gold-300)}
+
+/* Reveal */
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .9s ease, transform .9s ease}
+.reveal.visible{opacity:1; transform:none}
+
+/* Form fields — dark wine with gold focus */
+.field{
+  background:linear-gradient(180deg, rgba(38,6,13,.7) 0%, rgba(70,14,26,.55) 100%);
+  border:1px solid rgba(243,204,108,.28);
+  color:var(--ivory); padding:.75rem 1rem; border-radius:.75rem; width:100%;
+  box-shadow:0 1px 0 rgba(243,204,108,.12) inset;
+}
+.field::placeholder{color:rgba(252,236,210,.45)}
+.field:focus{
+  outline:none; border-color:var(--gold-400);
+  box-shadow:0 1px 0 rgba(243,204,108,.18) inset, 0 0 0 3px rgba(230,179,74,.30);
+}
+
+/* Cart badge */
+.cart-badge{
+  position:absolute; top:-6px; right:-8px;
+  background:linear-gradient(180deg,#f3cc6c,#9a6f1c);
+  color:#1a0509; border-radius:9999px; font-size:.65rem; padding:2px 6px; font-weight:700;
+  box-shadow:0 4px 10px rgba(0,0,0,.45);
+}
+
+/* Header — deep glossy wine with gold bottom edge */
+header{
+  background:linear-gradient(180deg, rgba(26,5,9,.85) 0%, rgba(14,3,6,.78) 100%) !important;
+  backdrop-filter:blur(14px) saturate(160%);
+  border-bottom:1px solid rgba(243,204,108,.30) !important;
+  box-shadow:0 8px 30px rgba(0,0,0,.55);
+}
+header a, header button{color:var(--ivory) !important}
+header a:hover{color:var(--gold-300) !important}
+header a.text-\[color\:var\(--garnet-400\)\]{color:var(--gold-300) !important}
+
+/* Strong inline-emphasis — luminous gold */
+strong{color:var(--gold-300)}
+
+/* Star picker */
+#starPicker span{
+  transition:transform .15s ease, color .15s ease;
+  line-height:1;
+}
+#starPicker span:hover{ transform:scale(1.15) }
+
+/* In-body links */
+a{color:var(--gold-300)}
+a:hover{color:var(--gold-200)}
