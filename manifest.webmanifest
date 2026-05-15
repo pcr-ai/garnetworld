@@ -1,0 +1,9 @@
+{
+  "name": "GarnetWorld",
+  "short_name": "GarnetWorld",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0509",
+  "theme_color": "#e6b34a",
+  "icons": [{ "src": "assets/img/logo.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
